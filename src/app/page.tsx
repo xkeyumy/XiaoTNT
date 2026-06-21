@@ -1,13 +1,24 @@
-import LensEffect from "@/components/LensEffect";
+import BackgroundEffects from "@/components/BackgroundEffects";
+import Navbar from "@/components/Navbar";
+import MagicLensHero from "@/components/MagicLensHero";
+import AboutSection from "@/components/AboutSection";
+import PortfolioSection from "@/components/PortfolioSection";
 
 export default function Home() {
   return (
-    <main className="page-container">
-      <div className="bg-glow" aria-hidden />
-      <LensEffect />
-      <footer className="footer-hint">
-        <span className="hint-text">移动鼠标或触摸屏幕以体验透镜效果</span>
-      </footer>
-    </main>
+    <>
+      <BackgroundEffects />
+      <Navbar />
+      <main className="relative z-10">
+        <MagicLensHero />
+        <AboutSection />
+        <PortfolioSection />
+        <footer className="py-12 text-center">
+          <p className="text-dusk-blue/40 text-xs tracking-[0.15em]">
+            © 2025 XiaoTNT · Crafted with precision
+          </p>
+        </footer>
+      </main>
+    </>
   );
 }
