@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 
 interface Project {
   title: string;
-  desc: string;
-  tags: string[];
   gradient: string;
   shape: "hexagon" | "circles" | "grid" | "waves" | "triangle" | "dots";
 }
@@ -13,43 +11,31 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     title: "Neural Canvas",
-    desc: "基于 AI 的创意绘画平台，融合生成式对抗网络与实时渲染",
-    tags: ["AI", "WebGL", "Creative"],
     gradient: "linear-gradient(135deg, #1B2CC1 0%, #7692FF 60%, #ABD2FA 100%)",
     shape: "hexagon",
   },
   {
     title: "DataVerse",
-    desc: "沉浸式三维数据可视化引擎，将复杂数据集转化为空间体验",
-    tags: ["3D", "Data Viz", "React"],
     gradient: "linear-gradient(135deg, #3D518C 0%, #1B2CC1 100%)",
     shape: "circles",
   },
   {
     title: "Quantum UI",
-    desc: "下一代设计系统，探索量子计算美学与人机交互的边界",
-    tags: ["Design System", "CSS", "Motion"],
     gradient: "linear-gradient(135deg, #7692FF 0%, #3D518C 100%)",
     shape: "grid",
   },
   {
     title: "Echo Protocol",
-    desc: "去中心化音频协作协议，让全球音乐人实时共创",
-    tags: ["Web3", "Audio", "P2P"],
     gradient: "linear-gradient(135deg, #ABD2FA 0%, #7692FF 100%)",
     shape: "waves",
   },
   {
     title: "Phantom OS",
-    desc: "概念操作系统界面设计，探索空间计算与手势交互的未来",
-    tags: ["UI/UX", "Concept", "Spatial"],
     gradient: "linear-gradient(135deg, #091540 0%, #1B2CC1 50%, #3D518C 100%)",
     shape: "triangle",
   },
   {
     title: "Synapse Link",
-    desc: "脑机接口可视化工具，将神经信号转化为直观的数据映射",
-    tags: ["BCI", "Viz", "Real-time"],
     gradient: "linear-gradient(135deg, #1B2CC1 0%, #ABD2FA 100%)",
     shape: "dots",
   },
@@ -123,7 +109,11 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] as const },
+    transition: {
+      duration: 0.7,
+      delay: i * 0.12,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
   }),
 };
 
@@ -138,11 +128,14 @@ export default function PortfolioSection() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
           className="text-center mb-20 sm:mb-28"
         >
-          <h2 className="hero-title gradient-text mb-8" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)" }}>
+          <h2
+            className="hero-title gradient-text mb-8"
+            style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)" }}
+          >
             我的数字影像
           </h2>
-          <p className="text-dusk-blue/60 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed tracking-wide">
-            每一个项目都是一次对未知领域的探索与创造
+          <p className="text-dusk-blue/50 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed tracking-wide">
+            还无内容
           </p>
         </motion.div>
 
@@ -157,25 +150,27 @@ export default function PortfolioSection() {
               viewport={{ once: true, margin: "-80px" }}
               className="portfolio-card group"
             >
-              <div className="relative aspect-[4/3] overflow-hidden" style={{ background: project.gradient }}>
+              <div
+                className="relative aspect-[4/3] overflow-hidden"
+                style={{ background: project.gradient }}
+              >
                 <ShapeSVG type={project.shape} />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 55%)" }} />
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 55%)",
+                  }}
+                />
               </div>
 
               <div className="p-6 sm:p-7">
                 <h3 className="text-base sm:text-lg font-semibold text-icy-blue mb-3 tracking-tight">
                   {project.title}
                 </h3>
-                <p className="text-cornflower/45 text-xs sm:text-sm leading-relaxed mb-5">
-                  {project.desc}
+                <p className="text-cornflower/40 text-xs sm:text-sm leading-relaxed">
+                  还无内容
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 text-[10px] sm:text-xs font-medium rounded-full text-cornflower/40 bg-cornflower/[0.05] border border-cornflower/[0.08]">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </motion.div>
           ))}
