@@ -110,7 +110,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -10, height: 0 }}
               animate={{ opacity: 1, y: 0, height: "auto" }}
               exit={{ opacity: 0, y: -10, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" as const }}
               className="sm:hidden mt-2 rounded-2xl overflow-hidden"
               style={{
                 background: "rgba(9, 21, 64, 0.75)",

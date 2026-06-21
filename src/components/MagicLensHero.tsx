@@ -87,7 +87,7 @@ export default function MagicLensHero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, delay: 1.2, ease: "easeOut" },
+      transition: { duration: 0.8, delay: 1.2, ease: "easeOut" as const },
     },
   };
 
@@ -159,7 +159,7 @@ export default function MagicLensHero() {
         </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" as const }}
           className="w-5 h-8 rounded-full border border-dusk-blue/30 flex items-start justify-center pt-1.5"
         >
           <div className="w-1 h-1.5 rounded-full bg-cornflower/50" />
