@@ -21,38 +21,36 @@ const CARDS = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.8, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] as const },
   }),
 };
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-24 sm:py-32 px-4 sm:px-6">
-      <div className="max-w-5xl mx-auto">
-        {/* Section title */}
+    <section id="about" className="relative py-32 sm:py-40 px-6">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
-          className="text-center mb-16 sm:mb-20"
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+          className="text-center mb-20 sm:mb-28"
         >
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-5"
-          >
+          <h2 className="hero-title gradient-text mb-8" style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)" }}>
             关于我
           </h2>
-          <p className="text-dusk-blue/80 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            一个在代码与像素之间游走的数字匠人，致力于将技术美学融入每一个项目
+          <p className="text-dusk-blue/60 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed tracking-wide">
+            一个在代码与像素之间游走的数字匠人，
+            <br className="hidden sm:block" />
+            致力于将技术美学融入每一个项目
           </p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {CARDS.map((card, i) => (
             <motion.div
               key={card.title}
@@ -60,31 +58,30 @@ export default function AboutSection() {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              className="glass-card rounded-2xl p-7 sm:p-8 group"
+              viewport={{ once: true, margin: "-100px" }}
+              className="glass-card rounded-2xl p-8 sm:p-10 group"
             >
-              <div className="text-3xl mb-5 text-cornflower/40 group-hover:text-cornflower/70 transition-colors duration-500">
+              <div className="text-3xl mb-8 text-cornflower/30 group-hover:text-cornflower/60 transition-colors duration-600">
                 {card.icon}
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-icy-blue mb-3">
+              <h3 className="text-lg sm:text-xl font-semibold text-icy-blue mb-5 tracking-tight">
                 {card.title}
               </h3>
-              <p className="text-cornflower/55 text-sm leading-[1.8]">
+              <p className="text-cornflower/45 text-sm leading-[1.75]">
                 {card.desc}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Extra bio block */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
-          className="glass-card rounded-2xl p-8 sm:p-10 mt-8"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
+          className="glass-card rounded-2xl p-10 sm:p-14 mt-10"
         >
-          <p className="text-cornflower/60 text-sm sm:text-base leading-[2] text-center max-w-3xl mx-auto">
+          <p className="text-cornflower/50 text-sm sm:text-base leading-[1.9] text-center max-w-2xl mx-auto tracking-wide">
             我是肖宜欣（XiaoTNT），一名充满热情的全栈开发者与数字创作者。
             我相信优秀的产品源于对细节的极致追求和对用户体验的深刻理解。
             在我的作品集中，你将看到技术与艺术的交汇 ——

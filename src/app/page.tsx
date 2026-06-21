@@ -1,6 +1,6 @@
 import BackgroundEffects from "@/components/BackgroundEffects";
 import Navbar from "@/components/Navbar";
-import MagicLensHero from "@/components/MagicLensHero";
+import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import PortfolioSection from "@/components/PortfolioSection";
 
@@ -10,11 +10,11 @@ export default function Home() {
       <BackgroundEffects />
       <Navbar />
       <main className="relative z-10">
-        <MagicLensHero />
+        <HeroSection />
         <AboutSection />
         <PortfolioSection />
-        <footer className="py-12 text-center">
-          <p className="text-dusk-blue/40 text-xs tracking-[0.15em]">
+        <footer className="py-20 text-center">
+          <p className="text-dusk-blue/30 text-xs tracking-[0.2em] uppercase">
             © 2025 XiaoTNT · Crafted with precision
           </p>
         </footer>
